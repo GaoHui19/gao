@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		li{
+			width: 50px;
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+
+	<ul id="list">
+		<!-- 渲染 -->
+	</ul>
+
+
+	<script src="https://cdn.bootcss.com/jquery/1.7.1/jquery.min.js"></script>
+	<script>
+		$.ajax({
+			url:"https://www.fastmock.site/mock/9e597b9c21c46b90e3e2851860aad608/ceshilujing/textApi",
+			type:"get",
+			success:function(res){
+				console.log(res)
+				$.each(res,function(index,obj){
+    				console.log(index)
+    				console.log(obj)               
+					$("#list").append(`<li>
+											<div>${obj.title}</div>
+											<img src="${obj.src}" alt="">
+									   </li>`)
+				});
+			}
+		})
+	</script>
+</body>
+</html>
